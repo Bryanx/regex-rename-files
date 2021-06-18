@@ -16,4 +16,9 @@
         <listener class="com.github.bryanx.intellijregexrenamefiles.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <action id="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" class="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" text="Replace Text in File Names" description="Replaces the text in all file names with possible regex.">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
