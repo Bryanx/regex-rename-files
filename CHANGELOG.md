@@ -1,6 +1,6 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# intellij-regex-replace-files Changelog
+# intellij-regex-rename-files Changelog
 
 ## [Unreleased]
 ### Added
