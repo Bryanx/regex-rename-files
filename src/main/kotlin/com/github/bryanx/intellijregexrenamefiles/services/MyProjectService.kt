@@ -1,6 +1,6 @@
-package com.github.bryanx.intellijregexreplacefiles.services
+package com.github.bryanx.intellijregexrenamefiles.services
 
-import com.github.bryanx.intellijregexreplacefiles.MyBundle
+import com.github.bryanx.intellijregexrenamefiles.MyBundle
 import com.intellij.openapi.project.Project
 
 class MyProjectService(project: Project) {

@@ -1,1 +1,1 @@
-rootProject.name = "intellij-regex-replace-files"
+rootProject.name = "intellij-regex-rename-files"

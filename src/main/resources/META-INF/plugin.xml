@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.github.bryanx.intellijregexreplacefiles</id>
-    <name>intellij-regex-replace-files</name>
+    <id>com.github.bryanx.intellijregexrenamefiles</id>
+    <name>intellij-regex-rename-files</name>
     <vendor>bryanx</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.bryanx.intellijregexreplacefiles.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.bryanx.intellijregexreplacefiles.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.bryanx.intellijregexrenamefiles.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.bryanx.intellijregexrenamefiles.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.bryanx.intellijregexreplacefiles.listeners.MyProjectManagerListener"
+        <listener class="com.github.bryanx.intellijregexrenamefiles.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

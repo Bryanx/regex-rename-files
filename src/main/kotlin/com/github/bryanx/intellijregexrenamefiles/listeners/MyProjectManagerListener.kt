@@ -1,6 +1,6 @@
-package com.github.bryanx.intellijregexreplacefiles.listeners
+package com.github.bryanx.intellijregexrenamefiles.listeners
 
-import com.github.bryanx.intellijregexreplacefiles.services.MyProjectService
+import com.github.bryanx.intellijregexrenamefiles.services.MyProjectService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener

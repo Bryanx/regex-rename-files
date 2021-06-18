@@ -1,4 +1,4 @@
-package com.github.bryanx.intellijregexreplacefiles
+package com.github.bryanx.intellijregexrenamefiles
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls
