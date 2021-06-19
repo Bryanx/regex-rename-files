@@ -34,9 +34,9 @@ class ReplaceFileNamesAction : DumbAwareAction() {
     private fun createNewFileName(dialog: ReplaceFileNamesDialogWrapper, oldName: @NotNull String): String {
         val fromText = dialog.getReplaceFromText()
         val toText = dialog.getReplaceToText()
-        return if (dialog.isUseRegex())
-            oldName.replace(fromText.toRegex(), toText)
-        else
-            oldName.replace(fromText, toText)
+        return when {
+            dialog.isUseRegex() -> oldName.replace(fromText.toRegex(), toText)
+            else -> oldName.replace(fromText, toText)
+        }
     }
 }
