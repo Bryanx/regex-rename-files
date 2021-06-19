@@ -23,7 +23,6 @@ public class ReplaceFileNamesDialog extends JDialog
   private JLabel descriptionLabel;
   private JLabel previewLabel;
   private JCheckBox regexCheckBox;
-  private boolean isInputValid = true;
   private Consumer<Boolean> validationListener;
 
   public ReplaceFileNamesDialog(VirtualFile[] selectedFiles)
