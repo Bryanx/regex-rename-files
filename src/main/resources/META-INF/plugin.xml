@@ -6,16 +6,6 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.bryanx.intellijregexrenamefiles.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.bryanx.intellijregexrenamefiles.services.MyProjectService"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.bryanx.intellijregexrenamefiles.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
     <actions>
         <action id="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" class="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" text="Replace Text in File Names" description="Replaces the text in all file names with possible regex.">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
