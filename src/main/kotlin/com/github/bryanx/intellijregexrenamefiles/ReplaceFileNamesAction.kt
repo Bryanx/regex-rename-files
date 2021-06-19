@@ -22,13 +22,12 @@ class ReplaceFileNamesAction : DumbAwareAction() {
         val currentProject = event.getData(PlatformDataKeys.PROJECT)
         val dialog = ReplaceFileNamesDialogWrapper(selectedFiles)
         if (dialog.showAndGet()) {
-            error("test")
-//            WriteCommandAction.runWriteCommandAction(currentProject, dialog.title, "ProjectViewPopupMenu", {
-//                selectedFiles?.forEach { file ->
-//                    val newName = createNewFileName(dialog, file.name)
-//                    file.rename(this, newName)
-//                }
-//            })
+            WriteCommandAction.runWriteCommandAction(currentProject, dialog.title, "ProjectViewPopupMenu", {
+                selectedFiles?.forEach { file ->
+                    val newName = createNewFileName(dialog, file.name)
+                    file.rename(this, newName)
+                }
+            })
         }
     }
 
