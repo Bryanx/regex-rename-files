@@ -1,4 +1,4 @@
-package com.github.bryanx.intellijregexrenamefiles
+package nl.bryanderidder.regexrenamefiles
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
@@ -24,9 +24,12 @@ class ReplaceFileNamesAction : DumbAwareAction() {
         val dialog = ReplaceFileNamesDialogWrapper(selectedFiles)
         val groupId = "ProjectViewPopupMenu"
         if (dialog.showAndGet()) {
-            WriteCommandAction.runWriteCommandAction(project, dialog.title, groupId, {
-                renameFiles(selectedFiles, dialog)
-            })
+            WriteCommandAction.runWriteCommandAction(
+                project, dialog.title, groupId,
+                {
+                    renameFiles(selectedFiles, dialog)
+                }
+            )
         }
     }
 

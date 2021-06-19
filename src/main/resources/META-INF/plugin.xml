@@ -1,13 +1,13 @@
 <idea-plugin>
-    <id>com.github.bryanx.intellijregexrenamefiles</id>
-    <name>intellij-regex-rename-files</name>
-    <vendor>bryanx</vendor>
+    <id>nl.bryanderidder.regexrenamefiles</id>
+    <name>Regex Rename Files</name>
+    <vendor>bryanderidder</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <actions>
-        <action id="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" class="com.github.bryanx.intellijregexrenamefiles.ReplaceFileNamesAction" text="Replace Text in File Names" description="Replaces the text in all file names with possible regex.">
+        <action id="nl.bryanderidder.regexrenamefiles.ReplaceFileNamesAction" class="nl.bryanderidder.regexrenamefiles.ReplaceFileNamesAction" text="Replace Text in File Names" description="Replaces the text in all file names with possible regex.">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
     </actions>

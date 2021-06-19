@@ -1,4 +1,4 @@
-package com.github.bryanx.intellijregexrenamefiles
+package nl.bryanderidder.regexrenamefiles
 
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vfs.VirtualFile

@@ -1,4 +1,4 @@
-package com.github.bryanx.intellijregexrenamefiles;
+package nl.bryanderidder.regexrenamefiles;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
