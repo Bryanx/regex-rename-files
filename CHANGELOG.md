@@ -3,6 +3,16 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Added description
+
 ## [1.0.1]
+### Added
+- Search and replace for files
+- Possibly use regex
+- Error handling in case of incorrect input
+- Error handling in case of duplicate files
+
+## [1.0.0]
 ### Added
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
