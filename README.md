@@ -4,7 +4,9 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/17063.svg)](https://plugins.jetbrains.com/plugin/17063)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/17063.svg)](https://plugins.jetbrains.com/plugin/17063)
 
+<!-- Plugin description -->
 Rename multiple files at the same time. Optionally use regex to replace text in file names.
+<!-- Plugin description end -->
 
 ## Installation
 
