@@ -2,6 +2,10 @@
     <id>nl.bryanderidder.regexrenamefiles</id>
     <name>Regex Rename Files</name>
     <vendor>bryanderidder</vendor>
+    <description><![CDATA[
+        <p>Rename multiple files at the same time. Optionally use regex to replace text in file names.</p>
+        ]]>
+    </description>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
