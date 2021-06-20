@@ -3,7 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
-### Changed
+### Added
 - Added description
 
 ## [1.0.1]
