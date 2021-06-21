@@ -3,6 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+## [1.0.3]
 ### Added
 - Added plugin icons
 - Added action icons
