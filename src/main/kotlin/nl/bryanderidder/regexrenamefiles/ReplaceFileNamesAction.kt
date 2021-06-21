@@ -9,13 +9,14 @@ import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages.showErrorDialog
 import com.intellij.openapi.vfs.VirtualFile
+import nl.bryanderidder.regexrenamefiles.icons.RegexRenameFilesIcons.ActionIcon
 import org.jetbrains.annotations.NotNull
 import java.io.IOException
 
 /**
  * @author Bryan de Ridder
  */
-class ReplaceFileNamesAction : DumbAwareAction() {
+class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
 
     private var changesList = mutableListOf<RenameEvent>()
 
