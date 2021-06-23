@@ -6,7 +6,7 @@
 
 <!-- Plugin description -->
 Rename multiple files at the same time. Optionally use regex to replace text in file names.
-
+<br/><br/>
 [GitHub](https://github.com/Bryanx/regex-rename-files) | [Issue tracker](https://github.com/Bryanx/regex-rename-files/issues) | [Plugin page](https://plugins.jetbrains.com/plugin/17063-regex-rename-files)
 <br/><br/>
 **Usage:**
