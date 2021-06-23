@@ -15,7 +15,7 @@ Rename multiple files at the same time. Optionally use regex to replace text in 
 3. Enter 'from' and 'to' texts and optionally use Regex.
 4. Click OK.
 
-![rename](https://github.com/Bryanx/regex-rename-files/blob/main/files/rename.png)
+![rename](https://plugins.jetbrains.com/files/17063/screenshot_3ca8121d-c01d-4eb4-ae59-f26240de15bb)
 <!-- Plugin description end -->
 
 ## Installation
