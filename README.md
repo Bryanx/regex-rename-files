@@ -8,13 +8,13 @@
 Rename multiple files at the same time. Optionally use regex to replace text in file names.
 
 [GitHub](https://github.com/Bryanx/regex-rename-files) | [Issue tracker](https://github.com/Bryanx/regex-rename-files/issues) | [Plugin page](https://plugins.jetbrains.com/plugin/17063-regex-rename-files)
-
+<br/><br/>
 **Usage:**
 1. Select multiple files.
 2. Right click and select 'Replace text in file names'.
 3. Enter 'from' and 'to' texts and optionally use Regex.
 4. Click OK.
-
+<br/><br/>
 ![rename](https://plugins.jetbrains.com/files/17063/screenshot_3ca8121d-c01d-4eb4-ae59-f26240de15bb)
 <!-- Plugin description end -->
 
