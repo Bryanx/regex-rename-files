@@ -3,6 +3,9 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Fix plugin description image and formatting
+
 ## [1.1.0]
 ### Changed
 - Expand plugin description
