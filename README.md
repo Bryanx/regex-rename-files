@@ -6,15 +6,25 @@
 
 <!-- Plugin description -->
 Rename multiple files at the same time. Optionally use regex to replace text in file names.
+
+[GitHub](https://github.com/Bryanx/regex-rename-files) | [Issue tracker](https://github.com/Bryanx/regex-rename-files/issues) | [Plugin page](https://plugins.jetbrains.com/plugin/17063-regex-rename-files)
+
+**Usage:**
+1. Select multiple files.
+2. Right click and select 'Replace text in file names'.
+3. Enter 'from' and 'to' texts and optionally use Regex.
+4. Click OK.
+
+![rename](https://github.com/Bryanx/regex-rename-files/blob/main/files/rename.png)
 <!-- Plugin description end -->
 
 ## Installation
 
 - Using IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "regex-rename-files"</kbd> >
+
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Regex Rename Files"</kbd> >
   <kbd>Install Plugin</kbd>
-  
+
 - Manually:
 
   Download the [latest release](https://github.com/Bryanx/regex-rename-files/releases/latest) and install it manually using
