@@ -3,6 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+## [1.1.3]
 ### Changed
 - Gif in README
 
