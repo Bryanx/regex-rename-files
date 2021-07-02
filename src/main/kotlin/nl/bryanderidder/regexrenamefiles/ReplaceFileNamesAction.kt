@@ -22,7 +22,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
 
     override fun update(event: AnActionEvent) {
         val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
-        val isEnabled = selectedFiles != null && selectedFiles.size > 1 && selectedFiles.none { it.isDirectory }
+        val isEnabled = selectedFiles != null && selectedFiles.size > 0
         event.presentation.isEnabled = isEnabled
         event.presentation.isVisible = isEnabled
     }
@@ -46,9 +46,14 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
         lateinit var renameEvent: RenameEvent
         try {
             files?.forEach { file ->
+                if (file.isDirectory) {
+                    renameFiles(file.children, dialog, project)
+                }
                 renameEvent = RenameEvent(file, file.name, createNewFileName(dialog, file.name))
-                file.rename(this, renameEvent.newName)
-                changesList.add(renameEvent)
+                if (!renameEvent.newName.equals(file.name)) {
+                    file.rename(this, renameEvent.newName)
+                    changesList.add(renameEvent)
+                }
             }
         } catch (e: IOException) {
             val errorMessage = "File '${renameEvent.newName}' already exists " +
