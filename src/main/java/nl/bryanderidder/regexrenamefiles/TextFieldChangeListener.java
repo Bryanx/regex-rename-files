@@ -5,11 +5,12 @@ import javax.swing.event.DocumentListener;
 import java.util.function.Consumer;
 
 /**
+ * TextFieldChangeListener class to prevent having to override all methods
+ *
  * @author Bryan de Ridder
  */
 public class TextFieldChangeListener implements DocumentListener
 {
-
   private final Consumer<DocumentEvent> onTextChanged;
 
   public TextFieldChangeListener(Consumer<DocumentEvent> onTextChanged)

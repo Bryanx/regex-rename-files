@@ -1,15 +1,15 @@
 package nl.bryanderidder.regexrenamefiles;
 
-import com.intellij.openapi.vfs.VirtualFile;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.util.function.Consumer;
 
 /**
+ * Dialog to rename multiple files
+ *
  * @author Bryan de Ridder
  */
-public class ReplaceFileNamesDialog extends JDialog
-{
+public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNamesDialog {
   private JPanel contentPane;
   private JTextField textField1;
   private JTextField textField2;
@@ -18,49 +18,96 @@ public class ReplaceFileNamesDialog extends JDialog
   private JLabel descriptionLabel;
   private JLabel previewLabel;
   private JCheckBox regexCheckBox;
-  private Consumer<Boolean> validationListener;
+  private JCheckBox renameNestedFilesCheckBox;
+  private JCheckBox renameNestedDirectoriesCheckBox;
+  private Runnable onUpdateRegexCheckBox;
+  private Runnable onUpdateRenameNestedFilesCheckBox;
+  private Runnable onUpdateRenameNestedDirectoriesCheckBox;
+  private Runnable onUpdateFromTextField;
+  private Runnable onUpdateToTextField;
 
-  public ReplaceFileNamesDialog(VirtualFile[] selectedFiles)
-  {
-    descriptionLabel.setText("Replace text in " + selectedFiles.length + " file names.");
-    String firstFileName = selectedFiles[0].getName();
-    previewLabel.setText("Preview: " + firstFileName);
-    textField1.getDocument().addDocumentListener(new TextFieldChangeListener((e) -> updatePreview(firstFileName)));
-    textField2.getDocument().addDocumentListener(new TextFieldChangeListener((e) -> updatePreview(firstFileName)));
-    regexCheckBox.addItemListener(e -> updatePreview(firstFileName));
+  public ReplaceFileNamesDialog() {
+    textField1.getDocument().addDocumentListener(new TextFieldChangeListener((e) -> onUpdateFromTextField.run()));
+    textField2.getDocument().addDocumentListener(new TextFieldChangeListener((e) -> onUpdateToTextField.run()));
+    regexCheckBox.addItemListener(e -> onUpdateRegexCheckBox.run());
+    renameNestedFilesCheckBox.addItemListener(e -> onUpdateRenameNestedFilesCheckBox.run());
+    renameNestedDirectoriesCheckBox.addItemListener(e -> onUpdateRenameNestedDirectoriesCheckBox.run());
     setContentPane(contentPane);
     setModal(true);
   }
 
-  private void updatePreview(String firstFileName) {
-    boolean isValid = true;
-    try
-    {
-      if (isUseRegex())
-        previewLabel.setText("Preview: " + firstFileName.replaceAll(getReplaceFromText(), getReplaceToText()));
-      else
-        previewLabel.setText("Preview: " + firstFileName.replace(getReplaceFromText(), getReplaceToText()));
-    } catch (Exception e) {
-      previewLabel.setText(e.getMessage());
-      isValid = false;
-    }
-    validationListener.accept(isValid);
+  @Override
+  public @NotNull JRootPane getRootPane() {
+    return super.getRootPane();
   }
 
-  public String getReplaceFromText() {
-    return textField1.getText();
+  @Override
+  public @NotNull String getReplaceFromText() {
+    return textField1.getText() != null ? textField1.getText() : "";
   }
 
-  public String getReplaceToText() {
-    return textField2.getText();
+  @Override
+  public @NotNull String getReplaceToText() {
+    return textField2.getText() != null ? textField2.getText() : "";
   }
 
-  public Boolean isUseRegex() {
+  @Override
+  public boolean isUseRegex() {
     return regexCheckBox.isSelected();
   }
 
-  public void listenForValidationChanges(Consumer<Boolean> validationListener)
-  {
-    this.validationListener = validationListener;
+  @Override
+  public void setDescriptionText(@NotNull String text) {
+    descriptionLabel.setText(text);
+  }
+
+  @Override
+  public void setPreviewText(@NotNull String text) {
+    previewLabel.setText(text);
+  }
+
+  @Override
+  public void onUpdateRegexCheckBox(@NotNull Runnable onUpdateRegexCheckBox) {
+    this.onUpdateRegexCheckBox = onUpdateRegexCheckBox;
+  }
+
+  @Override
+  public void onUpdateRenameNestedFilesCheckBox(@NotNull Runnable onUpdateRenameNestedFilesCheckBox) {
+    this.onUpdateRenameNestedFilesCheckBox = onUpdateRenameNestedFilesCheckBox;
+  }
+
+  @Override
+  public void onUpdateRenameNestedDirectoriesCheckBox(@NotNull Runnable onUpdateRenameNestedDirectoriesCheckBox) {
+    this.onUpdateRenameNestedDirectoriesCheckBox = onUpdateRenameNestedDirectoriesCheckBox;
+  }
+
+  @Override
+  public void setVisibleNestedFilesCheckBox(boolean isVisible) {
+    renameNestedFilesCheckBox.setVisible(isVisible);
+  }
+
+  @Override
+  public void setVisibleNestedDirectoriesCheckBox(boolean isVisible) {
+    renameNestedDirectoriesCheckBox.setVisible(isVisible);
+  }
+
+  @Override
+  public void onUpdateFromTextField(@NotNull Runnable onUpdateFromTextField) {
+    this.onUpdateFromTextField = onUpdateFromTextField;
+  }
+
+  @Override
+  public void onUpdateToTextField(@NotNull Runnable onUpdateToTextField) {
+    this.onUpdateToTextField = onUpdateToTextField;
+  }
+
+  @Override
+  public boolean isRenameNestedFilesSelected() {
+    return renameNestedFilesCheckBox.isSelected();
+  }
+
+  @Override
+  public boolean isRenameNestedDirectoriesSelected() {
+    return renameNestedDirectoriesCheckBox.isSelected();
   }
 }

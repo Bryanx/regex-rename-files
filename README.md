@@ -15,7 +15,7 @@ Rename multiple files at the same time. Optionally use regex to replace text in 
 3. Enter 'from' and 'to' texts and optionally use Regex.
 4. Click OK.
 <br/><br/>
-<img src="https://plugins.jetbrains.com/files/17063/screenshot_5ce8e5ee-be5c-402d-8896-f7a6807ca588" alt="rename">
+<img src="https://plugins.jetbrains.com/files/17063/screenshot_5ce8e5ee-be5c-402d-8896-f7a6807ca588" width="480" alt="rename">
 <!-- Plugin description end -->
 
 ## Installation

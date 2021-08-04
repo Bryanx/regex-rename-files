@@ -8,7 +8,6 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages.showErrorDialog
-import com.intellij.openapi.vfs.VirtualFile
 import nl.bryanderidder.regexrenamefiles.icons.RegexRenameFilesIcons.ActionIcon
 import org.jetbrains.annotations.NotNull
 import java.io.IOException
@@ -22,30 +21,30 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
 
     override fun update(event: AnActionEvent) {
         val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
-        val isEnabled = selectedFiles != null && selectedFiles.size > 1 && selectedFiles.none { it.isDirectory }
-        event.presentation.isEnabled = isEnabled
-        event.presentation.isVisible = isEnabled
+        event.presentation.isEnabledAndVisible = event.project != null &&
+            selectedFiles != null &&
+            (selectedFiles.size > 1 || selectedFiles[0].children.isNotEmpty())
     }
 
     override fun actionPerformed(event: AnActionEvent) {
-        val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
-        val project = event.getData(PlatformDataKeys.PROJECT)
+        val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)?.toList() ?: listOf()
+        val project = event.project
         val dialog = ReplaceFileNamesDialogWrapper(selectedFiles)
         val groupId = "ProjectViewPopupMenu"
         if (dialog.showAndGet()) {
             WriteCommandAction.runWriteCommandAction(
                 project, dialog.title, groupId,
                 {
-                    renameFiles(selectedFiles, dialog, project)
+                    renameFiles(dialog, project)
                 }
             )
         }
     }
 
-    private fun renameFiles(files: Array<out VirtualFile>?, dialog: ReplaceFileNamesDialogWrapper, project: Project?) {
+    private fun renameFiles(dialog: ReplaceFileNamesDialogWrapper, project: Project?) {
         lateinit var renameEvent: RenameEvent
         try {
-            files?.forEach { file ->
+            dialog.getFiles().forEach { file ->
                 renameEvent = RenameEvent(file, file.name, createNewFileName(dialog, file.name))
                 file.rename(this, renameEvent.newName)
                 changesList.add(renameEvent)

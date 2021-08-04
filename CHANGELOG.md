@@ -3,6 +3,13 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Added
+- Rename directories/nested directories is now possible
+- Toggle nested files/directories to rename
+
+### Changed
+- Resize gif in README
+- Bump intelliJ version
 ## [1.1.3]
 ### Changed
 - Gif in README

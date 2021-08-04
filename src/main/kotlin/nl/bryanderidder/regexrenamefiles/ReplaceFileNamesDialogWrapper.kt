@@ -7,9 +7,9 @@ import javax.swing.JComponent
 /**
  * @author Bryan de Ridder
  */
-class ReplaceFileNamesDialogWrapper(val selectedFiles: Array<VirtualFile>?) : DialogWrapper(true) {
+class ReplaceFileNamesDialogWrapper(private val selectedFiles: List<VirtualFile>) : DialogWrapper(true) {
 
-    private lateinit var dialog: ReplaceFileNamesDialog
+    private lateinit var dialogVM: ReplaceFileNamesViewModel
 
     init {
         title = "Replace text in file names"
@@ -17,9 +17,9 @@ class ReplaceFileNamesDialogWrapper(val selectedFiles: Array<VirtualFile>?) : Di
     }
 
     override fun createCenterPanel(): JComponent? {
-        this.dialog = ReplaceFileNamesDialog(selectedFiles)
-        dialog.listenForValidationChanges { isValid -> okAction.isEnabled = isValid }
-        return dialog.rootPane
+        this.dialogVM = ReplaceFileNamesViewModel(selectedFiles, ReplaceFileNamesDialog())
+        dialogVM.listenForValidationChanges { isValid -> okAction.isEnabled = isValid }
+        return dialogVM.rootPane
     }
 
     override fun doOKAction() {
@@ -28,7 +28,8 @@ class ReplaceFileNamesDialogWrapper(val selectedFiles: Array<VirtualFile>?) : Di
         }
     }
 
-    fun getReplaceFromText(): String = dialog.replaceFromText ?: ""
-    fun getReplaceToText(): String = dialog.replaceToText ?: ""
-    fun isUseRegex(): Boolean = dialog.isUseRegex
+    fun getFiles(): List<VirtualFile> = dialogVM.getFiles()
+    fun getReplaceFromText(): String = dialogVM.replaceFromText
+    fun getReplaceToText(): String = dialogVM.replaceToText
+    fun isUseRegex(): Boolean = dialogVM.isUseRegex
 }
