@@ -8,9 +8,9 @@ plugins {
     // Java support
     id("java")
     // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.5.10"
+    id("org.jetbrains.kotlin.jvm") version "1.5.21"
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-    id("org.jetbrains.intellij") version "1.0"
+    id("org.jetbrains.intellij") version "1.1.2"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "1.1.2"
     // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
@@ -66,12 +66,14 @@ detekt {
 
 tasks {
     // Set the compatibility versions to 1.8
-    withType<JavaCompile> {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
-    }
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+    properties("javaVersion").let {
+        withType<JavaCompile> {
+            sourceCompatibility = it
+            targetCompatibility = it
+        }
+        withType<KotlinCompile> {
+            kotlinOptions.jvmTarget = it
+        }
     }
 
     withType<Detekt> {
