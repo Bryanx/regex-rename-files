@@ -3,6 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+## [1.1.4]
 ### Added
 - Rename directories/nested directories is now possible
 - Toggle nested files/directories to rename
