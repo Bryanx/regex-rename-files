@@ -3,6 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+## [1.1.5]
 ### Changed
 - Fixed an issue where an error occurred on initial load.
 
