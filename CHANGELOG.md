@@ -3,6 +3,9 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Fixed an issue where an error occurred on initial load.
+
 ## [1.1.4]
 ### Added
 - Rename directories/nested directories is now possible

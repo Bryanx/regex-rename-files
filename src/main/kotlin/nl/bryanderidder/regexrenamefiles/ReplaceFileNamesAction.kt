@@ -23,7 +23,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
         val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
         event.presentation.isEnabledAndVisible = event.project != null &&
             selectedFiles != null &&
-            (selectedFiles.size > 1 || selectedFiles[0].children.isNotEmpty())
+            (selectedFiles.size > 1 || selectedFiles.isNotEmpty() && selectedFiles[0].children.isNotEmpty())
     }
 
     override fun actionPerformed(event: AnActionEvent) {

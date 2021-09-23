@@ -36,7 +36,7 @@ class ReplaceFileNamesViewModel(val selectedFiles: List<VirtualFile>, val view: 
         val firstFileName: String = getFirstFileName()
         view.setDescriptionText("Replace text in " + getFiles().size + " file names.")
         try {
-            updatePreview(firstFileName)
+            updatePreview(firstFileName, view.isUseRegex)
         } catch (e: PatternSyntaxException) {
             view.setPreviewText(e.message ?: "")
             isValid = false
@@ -44,9 +44,9 @@ class ReplaceFileNamesViewModel(val selectedFiles: List<VirtualFile>, val view: 
         validationListener.invoke(isValid)
     }
 
-    private fun updatePreview(name: String) {
+    private fun updatePreview(name: String, isUseRegex: Boolean) {
         when {
-            view.isUseRegex ->
+            isUseRegex ->
                 view.setPreviewText("Preview: " + name.replace(view.replaceFromText.toRegex(), view.replaceToText))
             else ->
                 view.setPreviewText("Preview: " + name.replace(view.replaceFromText, view.replaceToText))
