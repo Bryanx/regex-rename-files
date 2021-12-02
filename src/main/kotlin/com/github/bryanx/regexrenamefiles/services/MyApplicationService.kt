@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.bryanx.regexrenamefiles.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.bryanx.regexrenamefiles.MyBundle
 
 class MyApplicationService {
 
