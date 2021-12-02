@@ -6,6 +6,7 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    
     <actions>
         <action id="nl.bryanderidder.regexrenamefiles.ReplaceFileNamesAction"
                 class="nl.bryanderidder.regexrenamefiles.ReplaceFileNamesAction"
@@ -14,4 +15,14 @@
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
+        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
 </idea-plugin>
