@@ -3,6 +3,9 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Merged the latest plugin template version into this repo.
+
 ## [1.1.5]
 ### Changed
 - Fixed an issue where an error occurred on initial load.
