@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+
+## [1.1.6]
 ### Changed
 - Merged the latest plugin template version into this repo.
 
@@ -18,6 +20,7 @@
 ### Changed
 - Resize gif in README
 - Bump intelliJ version
+
 ## [1.1.3]
 ### Changed
 - Gif in README
