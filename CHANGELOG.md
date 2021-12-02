@@ -3,5 +3,53 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Merged the latest plugin template version into this repo.
+
+## [1.1.5]
+### Changed
+- Fixed an issue where an error occurred on initial load.
+
+## [1.1.4]
+### Added
+- Rename directories/nested directories is now possible
+- Toggle nested files/directories to rename
+
+### Changed
+- Resize gif in README
+- Bump intelliJ version
+## [1.1.3]
+### Changed
+- Gif in README
+
+## [1.1.2]
+### Changed
+- Fix plugin description image and formatting
+
+## [1.1.1]
+### Changed
+- Fix plugin description image and formatting
+
+## [1.1.0]
+### Changed
+- Expand plugin description
+
+## [1.0.3]
+### Added
+- Added plugin icons
+- Added action icons
+
+## [1.0.2]
+### Added
+- Added description
+
+## [1.0.1]
+### Added
+- Search and replace for files
+- Possibly use regex
+- Error handling in case of incorrect input
+- Error handling in case of duplicate files
+
+## [1.0.0]
 ### Added
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
