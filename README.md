@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/17063.svg)](https://plugins.jetbrains.com/plugin/17063)
 
 <!-- Plugin description -->
-Rename multiple files at the same time. Optionally use regex to replace text in file names.
+Rename multiple files at the same time. Optionally use regex. You can also select a directory to recursively rename all nested files/folders.
 <br/><br/>
 [GitHub](https://github.com/Bryanx/regex-rename-files) | [Issue tracker](https://github.com/Bryanx/regex-rename-files/issues) | [Plugin page](https://plugins.jetbrains.com/plugin/17063-regex-rename-files)
 <br/><br/>

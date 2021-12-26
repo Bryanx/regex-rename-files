@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 ### Changed
+- Made it more explicit that you can rename nested files and folders.
+
+## [1.1.6]
+### Changed
 - Merged the latest plugin template version into this repo.
 
 ## [1.1.5]
