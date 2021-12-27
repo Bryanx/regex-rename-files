@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+
+## [1.1.7]
 ### Changed
 - Made it more explicit that you can rename nested files and folders.
 
@@ -22,6 +24,7 @@
 ### Changed
 - Resize gif in README
 - Bump intelliJ version
+
 ## [1.1.3]
 ### Changed
 - Gif in README
