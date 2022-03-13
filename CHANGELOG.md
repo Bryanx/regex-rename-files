@@ -3,6 +3,9 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- The 'From textfield' is now in focus when opening the dialog
+- Update dependencies
 
 ## [1.1.7]
 ### Changed

@@ -110,4 +110,9 @@ public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNames
   public boolean isRenameNestedDirectoriesSelected() {
     return renameNestedDirectoriesCheckBox.isSelected();
   }
+
+  @Override
+  public JTextField getTextField1() {
+    return textField1;
+  }
 }

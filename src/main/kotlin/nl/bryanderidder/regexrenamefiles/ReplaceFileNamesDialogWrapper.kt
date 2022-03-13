@@ -28,6 +28,10 @@ class ReplaceFileNamesDialogWrapper(private val selectedFiles: List<VirtualFile>
         }
     }
 
+    override fun getPreferredFocusedComponent(): JComponent? {
+        return dialogVM.view.getTextField1()
+    }
+
     fun getFiles(): List<VirtualFile> = dialogVM.getFiles()
     fun getReplaceFromText(): String = dialogVM.replaceFromText
     fun getReplaceToText(): String = dialogVM.replaceToText

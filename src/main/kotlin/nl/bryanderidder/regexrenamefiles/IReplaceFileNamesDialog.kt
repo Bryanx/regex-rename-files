@@ -1,6 +1,7 @@
 package nl.bryanderidder.regexrenamefiles
 
 import javax.swing.JRootPane
+import javax.swing.JTextField
 
 /**
  * Interface for view dialog
@@ -21,6 +22,7 @@ interface IReplaceFileNamesDialog {
     fun setVisibleNestedDirectoriesCheckBox(isVisible: Boolean)
     fun onUpdateFromTextField(onUpdateFromTextField: Runnable)
     fun onUpdateToTextField(onUpdateToTextField: Runnable)
+    fun getTextField1(): JTextField?
     val isRenameNestedFilesSelected: Boolean
     val isRenameNestedDirectoriesSelected: Boolean
 }
