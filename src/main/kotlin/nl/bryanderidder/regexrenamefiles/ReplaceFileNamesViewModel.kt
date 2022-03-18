@@ -5,7 +5,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import java.util.regex.PatternSyntaxException
 import javax.swing.JRootPane
 
-class ReplaceFileNamesViewModel(val selectedFiles: List<VirtualFile>, val view: IReplaceFileNamesDialog) {
+class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, val view: IReplaceFileNamesDialog) {
     private var validationListener: (Boolean) -> Unit = {}
     val rootPane: JRootPane get() = view.rootPane
     val replaceFromText: String get() = view.replaceFromText
