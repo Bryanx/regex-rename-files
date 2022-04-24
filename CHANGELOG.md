@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+
+## [1.1.9]
 ### Changed
 - Added support for 2022.1 IDE builds
 - Update Gradle IntelliJ Plugin dependency
