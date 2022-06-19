@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+
+## [1.2.0]
 ### Changed
 - Fixed input issues in 'to' textfield when using Regex.
 
