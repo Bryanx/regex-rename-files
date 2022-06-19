@@ -2,7 +2,6 @@ package nl.bryanderidder.regexrenamefiles
 
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
-import java.util.regex.PatternSyntaxException
 import javax.swing.JRootPane
 
 class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, val view: IReplaceFileNamesDialog) {
@@ -37,7 +36,7 @@ class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, va
         view.setDescriptionText("Replace text in " + getFiles().size + " file names.")
         try {
             updatePreview(firstFileName, view.isUseRegex)
-        } catch (e: PatternSyntaxException) {
+        } catch (e: Exception) {
             view.setPreviewText(e.message ?: "")
             isValid = false
         }
