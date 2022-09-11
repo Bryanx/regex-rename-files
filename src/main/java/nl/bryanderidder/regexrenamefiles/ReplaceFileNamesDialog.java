@@ -20,9 +20,11 @@ public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNames
   private JCheckBox regexCheckBox;
   private JCheckBox renameNestedFilesCheckBox;
   private JCheckBox renameNestedDirectoriesCheckBox;
+  private JCheckBox renameToLowerCaseCheckBox;
   private Runnable onUpdateRegexCheckBox;
   private Runnable onUpdateRenameNestedFilesCheckBox;
   private Runnable onUpdateRenameNestedDirectoriesCheckBox;
+  private Runnable onUpdateRenameToLowerCaseCheckBox;
   private Runnable onUpdateFromTextField;
   private Runnable onUpdateToTextField;
 
@@ -32,6 +34,7 @@ public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNames
     regexCheckBox.addItemListener(e -> onUpdateRegexCheckBox.run());
     renameNestedFilesCheckBox.addItemListener(e -> onUpdateRenameNestedFilesCheckBox.run());
     renameNestedDirectoriesCheckBox.addItemListener(e -> onUpdateRenameNestedDirectoriesCheckBox.run());
+    renameToLowerCaseCheckBox.addItemListener(e -> onUpdateRenameToLowerCaseCheckBox.run());
     setContentPane(contentPane);
     setModal(true);
   }
@@ -57,6 +60,11 @@ public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNames
   }
 
   @Override
+  public boolean isLowerCase() {
+    return renameToLowerCaseCheckBox.isSelected();
+  }
+
+  @Override
   public void setDescriptionText(@NotNull String text) {
     descriptionLabel.setText(text);
   }
@@ -79,6 +87,11 @@ public class ReplaceFileNamesDialog extends JDialog implements IReplaceFileNames
   @Override
   public void onUpdateRenameNestedDirectoriesCheckBox(@NotNull Runnable onUpdateRenameNestedDirectoriesCheckBox) {
     this.onUpdateRenameNestedDirectoriesCheckBox = onUpdateRenameNestedDirectoriesCheckBox;
+  }
+
+  @Override
+  public void onUpdateRenameToLowerCaseCheckBox(@NotNull Runnable onUpdateRenameToLowerCaseCheckBox) {
+    this.onUpdateRenameToLowerCaseCheckBox = onUpdateRenameToLowerCaseCheckBox;
   }
 
   @Override

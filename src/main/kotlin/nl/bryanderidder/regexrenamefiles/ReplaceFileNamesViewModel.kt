@@ -10,6 +10,7 @@ class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, va
     val replaceFromText: String get() = view.replaceFromText
     val replaceToText: String get() = view.replaceToText
     val isUseRegex: Boolean get() = view.isUseRegex
+    val isLowerCase: Boolean get() = view.isLowerCase
 
     init {
         initialiseViews()
@@ -28,6 +29,7 @@ class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, va
         view.onUpdateRegexCheckBox { updatePreview() }
         view.onUpdateRenameNestedFilesCheckBox { updatePreview() }
         view.onUpdateRenameNestedDirectoriesCheckBox { updatePreview() }
+        view.onUpdateRenameToLowerCaseCheckBox { updatePreview() }
     }
 
     private fun updatePreview() {
@@ -35,7 +37,7 @@ class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, va
         val firstFileName: String = getFirstFileName()
         view.setDescriptionText("Replace text in " + getFiles().size + " file names.")
         try {
-            updatePreview(firstFileName, view.isUseRegex)
+            updatePreview(firstFileName, view.isUseRegex, view.isLowerCase)
         } catch (e: Exception) {
             view.setPreviewText(e.message ?: "")
             isValid = false
@@ -43,12 +45,37 @@ class ReplaceFileNamesViewModel(private val selectedFiles: List<VirtualFile>, va
         validationListener.invoke(isValid)
     }
 
-    private fun updatePreview(name: String, isUseRegex: Boolean) {
+    private fun updatePreview(name: String, isUseRegex: Boolean, isLowerCase: Boolean) {
         when {
             isUseRegex ->
-                view.setPreviewText("Preview: " + name.replace(view.replaceFromText.toRegex(), view.replaceToText))
+                when {
+                    isLowerCase ->
+                        view.setPreviewText(
+                            "Preview: " + name.replace(
+                                view.replaceFromText.toRegex(),
+                                view.replaceToText
+                            ).lowercase()
+                        )
+
+                    else ->
+                        view.setPreviewText(
+                            "Preview: " + name.replace(
+                                view.replaceFromText.toRegex(),
+                                view.replaceToText
+                            )
+                        )
+                }
+
             else ->
-                view.setPreviewText("Preview: " + name.replace(view.replaceFromText, view.replaceToText))
+                when {
+                    isLowerCase ->
+                        view.setPreviewText(
+                            "Preview: " + name.replace(view.replaceFromText, view.replaceToText).lowercase()
+                        )
+
+                    else ->
+                        view.setPreviewText("Preview: " + name.replace(view.replaceFromText, view.replaceToText))
+                }
         }
     }
 
