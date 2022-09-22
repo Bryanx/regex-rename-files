@@ -13,11 +13,13 @@ interface IReplaceFileNamesDialog {
     val replaceFromText: String
     val replaceToText: String
     val isUseRegex: Boolean
+    val isLowerCase: Boolean
     fun setDescriptionText(text: String)
     fun setPreviewText(text: String)
     fun onUpdateRegexCheckBox(onUpdateRegexCheckBox: Runnable)
     fun onUpdateRenameNestedFilesCheckBox(onUpdateRenameNestedFilesCheckBox: Runnable)
     fun onUpdateRenameNestedDirectoriesCheckBox(onUpdateRenameNestedDirectoriesCheckBox: Runnable)
+    fun onUpdateRenameToLowerCaseCheckBox(onUpdateRenameToLowerCaseCheckBox: Runnable)
     fun setVisibleNestedFilesCheckBox(isVisible: Boolean)
     fun setVisibleNestedDirectoriesCheckBox(isVisible: Boolean)
     fun onUpdateFromTextField(onUpdateFromTextField: Runnable)

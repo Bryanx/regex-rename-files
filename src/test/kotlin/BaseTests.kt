@@ -19,6 +19,7 @@ class BaseTests : BasePlatformTestCase() {
         assertEquals(mockDialog.replaceFromText, "")
         assertEquals(mockDialog.replaceToText, "")
         assertEquals(mockDialog.isUseRegex, false)
+        assertEquals(mockDialog.isLowerCase, false)
         assertEquals(mockDialog.isRenameNestedFilesSelected, false)
         assertEquals(mockDialog.isRenameNestedDirectoriesSelected, false)
     }

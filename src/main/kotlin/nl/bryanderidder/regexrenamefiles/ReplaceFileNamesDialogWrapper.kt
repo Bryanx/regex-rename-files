@@ -36,4 +36,5 @@ class ReplaceFileNamesDialogWrapper(private val selectedFiles: List<VirtualFile>
     fun getReplaceFromText(): String = dialogVM.replaceFromText
     fun getReplaceToText(): String = dialogVM.replaceToText
     fun isUseRegex(): Boolean = dialogVM.isUseRegex
+    fun isLowerCase(): Boolean = dialogVM.isLowerCase
 }

@@ -22,8 +22,8 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
     override fun update(event: AnActionEvent) {
         val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
         event.presentation.isEnabledAndVisible = event.project != null &&
-            selectedFiles != null &&
-            (selectedFiles.size > 1 || selectedFiles.isNotEmpty() && selectedFiles[0].children.isNotEmpty())
+                selectedFiles != null &&
+                (selectedFiles.size > 1 || selectedFiles.isNotEmpty() && selectedFiles[0].children.isNotEmpty())
     }
 
     override fun actionPerformed(event: AnActionEvent) {
@@ -51,7 +51,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
             }
         } catch (e: IOException) {
             val errorMessage = "File '${renameEvent.newName}' already exists " +
-                "in directory '${renameEvent.file.parent.path}'"
+                    "in directory '${renameEvent.file.parent.path}'"
             LOGGER.warn(errorMessage, e)
             revertRenameFiles()
             invokeLater {
@@ -69,8 +69,19 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
         val fromText = dialog.getReplaceFromText()
         val toText = dialog.getReplaceToText()
         return when {
-            dialog.isUseRegex() -> oldName.replace(fromText.toRegex(), toText)
-            else -> oldName.replace(fromText, toText)
+            dialog.isUseRegex() -> when {
+                dialog.isLowerCase() ->
+                    oldName.replace(fromText.toRegex(), toText).lowercase()
+
+                else -> oldName.replace(fromText.toRegex(), toText)
+            }
+
+            else -> when {
+                dialog.isLowerCase() ->
+                    oldName.replace(fromText, toText).lowercase()
+
+                else -> oldName.replace(fromText, toText)
+            }
         }
     }
 
