@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Added
+- Rename to lower case function
 
 ## [1.2.1]
 ### Changed
