@@ -8,15 +8,18 @@ import javax.swing.JComponent
  * @author Bryan de Ridder
  */
 class ReplaceFileNamesDialogWrapper(private val selectedFiles: List<VirtualFile>) : DialogWrapper(true) {
+    companion object {
+        const val TITLE = "Replace Text in File Names"
+    }
 
     private lateinit var dialogVM: ReplaceFileNamesViewModel
 
     init {
-        title = "Replace text in file names"
+        title = TITLE
         init()
     }
 
-    override fun createCenterPanel(): JComponent? {
+    override fun createCenterPanel(): JComponent {
         this.dialogVM = ReplaceFileNamesViewModel(selectedFiles, ReplaceFileNamesDialog())
         dialogVM.listenForValidationChanges { isValid -> okAction.isEnabled = isValid }
         return dialogVM.rootPane
