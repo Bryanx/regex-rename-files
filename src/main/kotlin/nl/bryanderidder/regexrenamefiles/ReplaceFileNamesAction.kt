@@ -98,7 +98,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
             }
             val parent = it.file.parent
             if (parent?.findChild(it.newName) != null) {
-                errors.add("New name '${it.newName}' for '${it.oldName}' already used in directory '${parent.path}'")
+                errors.add("New name '${it.newName}' for '${it.oldName}' is already used in directory '${parent.path}'")
                 continue
             }
         }
