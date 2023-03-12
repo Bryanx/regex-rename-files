@@ -3,6 +3,9 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Improved error handling
+- Capitalized dialog title
 
 ## [1.2.3]
 ### Changed
