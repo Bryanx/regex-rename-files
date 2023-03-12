@@ -89,7 +89,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
         }
         for (it in events) {
             if (!it.file.isValid) {
-                errors.add("File '${it.file.name}' is not valid one")
+                errors.add("File '${it.file.name}' is not valid")
                 continue
             }
             if (!it.file.fileSystem.isValidName(it.newName)) {
