@@ -93,7 +93,7 @@ class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
                 continue
             }
             if (!it.file.fileSystem.isValidName(it.newName)) {
-                errors.add("New file name '${it.newName}' is not supported by file system")
+                errors.add("New file name '${it.newName}' is not supported by the file system")
                 continue
             }
             val parent = it.file.parent
