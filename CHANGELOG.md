@@ -3,9 +3,10 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+
+## [1.2.5]
 ### Changed
 - Added support for 2023.2 IDE builds
-
 
 ## [1.2.4]
 ### Changed
@@ -54,6 +55,7 @@
 ### Added
 - Rename directories/nested directories is now possible
 - Toggle nested files/directories to rename
+
 
 ### Changed
 - Resize gif in README
