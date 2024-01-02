@@ -3,6 +3,8 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+### Changed
+- Changing case is now permitted when renaming files
 
 ## [1.2.6]
 ### Changed
