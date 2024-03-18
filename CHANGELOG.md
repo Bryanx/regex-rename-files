@@ -3,6 +3,7 @@
 # regex-rename-files Changelog
 
 ## [Unreleased]
+- Added support for 2024.1 IDE builds
 
 ## [1.2.7]
 ### Changed
