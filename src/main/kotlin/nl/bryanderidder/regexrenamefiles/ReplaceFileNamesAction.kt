@@ -1,5 +1,6 @@
 package nl.bryanderidder.regexrenamefiles
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.application.ReadAction
@@ -17,6 +18,7 @@ import java.io.IOException
  * @author Bryan de Ridder
  */
 class ReplaceFileNamesAction : DumbAwareAction(ActionIcon) {
+    override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 
     override fun update(event: AnActionEvent) {
         val selectedFiles = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY)
