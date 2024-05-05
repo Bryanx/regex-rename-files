@@ -1,4 +1,4 @@
-import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.testFramework.TestActionEvent
 import com.intellij.testFramework.TestDataProvider
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
@@ -8,9 +8,8 @@ class SystemTests : BasePlatformTestCase() {
 
     fun test_action() {
         val action = ReplaceFileNamesAction()
-        val testDataProvider = TestDataProvider(project)
-        testDataProvider.getData(CommonDataKeys.VIRTUAL_FILE_ARRAY)
-        val event = TestActionEvent(testDataProvider)
+        val context = TestDataProvider(project)
+        val event = TestActionEvent.createFromAnAction(action, null, ActionPlaces.UNKNOWN, context::getData)
         event.dataContext
         action.update(event)
     }

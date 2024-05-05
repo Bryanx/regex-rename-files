@@ -1,5 +1,5 @@
 import com.intellij.mock.MockVirtualFile
-import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.testFramework.TestActionEvent
 import com.intellij.testFramework.TestDataProvider
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
@@ -26,21 +26,21 @@ class BaseTests : BasePlatformTestCase() {
 
     fun test_whenInitialized_selectedFilesShouldBeEmpty() {
         val testDataProvider = mock<TestDataProvider>()
-        assertNull(testDataProvider.getData(CommonDataKeys.VIRTUAL_FILE_ARRAY))
+        assertNull(testDataProvider.getData("virtualFileArray"))
     }
 
     fun test_whenStubbingSelectedFiles_shouldBeAbleToRetrieveStubbedFile() {
         val testDataProvider = mock<TestDataProvider> {
-            on { getData(CommonDataKeys.VIRTUAL_FILE_ARRAY) } doReturn arrayOf(MockVirtualFile("bla"))
+            on { getData("virtualFileArray") } doReturn arrayOf(MockVirtualFile("bla"))
         }
-        assertEquals(testDataProvider.getData(CommonDataKeys.VIRTUAL_FILE_ARRAY)?.first()?.name, "bla")
+        val data = testDataProvider.getData("virtualFileArray") as Array<MockVirtualFile>
+        assertEquals(data.first().name, "bla")
     }
 
     fun test_shouldBeAbleToCallAMockedAction() {
         val action = ReplaceFileNamesAction()
-        val testDataProvider = TestDataProvider(project)
-        val event = TestActionEvent(testDataProvider)
-        event.dataContext
+        val context = TestDataProvider(project)
+        val event = TestActionEvent.createFromAnAction(action, null, ActionPlaces.UNKNOWN, context::getData)
         action.update(event)
         assertFalse(event.presentation.isEnabledAndVisible)
     }
