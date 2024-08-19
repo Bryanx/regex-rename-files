@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+- Added support for 2024.2 IDE builds
+
 ## [1.3.0] - 2024-05-05
 
 - Fixed deprecation warnings
