@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2024-08-19
+
 - Added support for 2024.2 IDE builds
 
 ## [1.3.0] - 2024-05-05
@@ -159,7 +161,8 @@
 
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
 
-[Unreleased]: https://github.com/Bryanx/regex-rename-files/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/Bryanx/regex-rename-files/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/Bryanx/regex-rename-files/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/Bryanx/regex-rename-files/compare/v1.2.8...v1.3.0
 [1.2.8]: https://github.com/Bryanx/regex-rename-files/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/Bryanx/regex-rename-files/compare/v1.2.6...v1.2.7
