@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+- Removed pluginUntilBuild
+
 ## [1.3.1] - 2024-08-19
 
 - Added support for 2024.2 IDE builds
